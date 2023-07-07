@@ -49,9 +49,9 @@ class App(tk.Tk):
         self.notebook = Notebook(self)
         self.notebook.pack(expand=True, fill="both")
 
-        self.edge_detection_widget = EdgeDetectionWidget(self, self.notebook).build()
-        self.blur_widget = BlurWidget(self, self.notebook).build()
-        self.denoise_widget = DenoiseWidget(self, self.notebook).build()
+        self.edge_detection_widget = EdgeDetectionWidget(self.notebook).build()
+        self.blur_widget = BlurWidget(self.notebook).build()
+        self.denoise_widget = DenoiseWidget(self.notebook).build()
 
         self.add_filter_widget(self.edge_detection_widget, "Edge Detection")
         self.add_filter_widget(self.blur_widget, "Blur")

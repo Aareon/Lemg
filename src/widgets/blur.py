@@ -20,10 +20,9 @@ def get_blur_with_radius(image: Image, radius=2):
 
 
 class BlurWidget(ImageCompareWidget):
-    def __init__(self, root, parent=None):
-        super().__init__(root, parent=self)
-        self.root = root
-        self.parent = parent or root
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        self.parent = parent
 
         # variables for cv2 blur
         self.kernel = tk.IntVar()

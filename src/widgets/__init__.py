@@ -21,11 +21,16 @@ import ttkbootstrap as ttk
 # )
 
 
-class ImageCompareWidget(tk.Frame):
-    def __init__(self, root, parent=None):
-        tk.Frame.__init__(self, root)
-        self.root = root
-        self.parent = parent or root
+class BaseWidget(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+
+
+class ImageCompareWidget(BaseWidget):
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        # self.root = root
+        self.parent = parent
 
         self.placholder_image: ImageTk = None  # white image used at start
 
@@ -238,8 +243,8 @@ class ImageCompareWidget(tk.Frame):
         self.slider_frame.pack()
 
         # bind keyboard arrow press events for changing sliders with arrow keys
-        self.root.bind("<Left>", self.handle_slider_arrows)
-        self.root.bind("<KeyRelease>", self.handle_slider_arrows)
-        self.root.bind("<Right>", self.handle_slider_arrows)
-        self.root.bind("<KeyRelease>", self.handle_slider_arrows)
+        # self.root.bind("<Left>", self.handle_slider_arrows)
+        # self.root.bind("<KeyRelease>", self.handle_slider_arrows)
+        # self.root.bind("<Right>", self.handle_slider_arrows)
+        # self.root.bind("<KeyRelease>", self.handle_slider_arrows)
         return self

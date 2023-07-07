@@ -26,10 +26,9 @@ def get_gaussian_edges(image, ksize, sigma):
 
 
 class EdgeDetectionWidget(ImageCompareWidget):
-    def __init__(self, root, parent=None):
-        super().__init__(root, parent=parent)
-        self.root = root
-        self.parent = parent or root
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        self.parent = parent
 
         # Canny vars
         self.t_lower = tk.IntVar()
